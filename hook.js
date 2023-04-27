@@ -90,6 +90,11 @@ function createHook (meta) {
       return { url: url.url, format: 'commonjs' }
     }
 
+    // ignore our own modules
+    if (url.url.indexOf('@payzen') !== -1) {
+      return url
+    }
+
     if (isIitm(parentURL, meta) || hasIitm(parentURL)) {
       return url
     }
