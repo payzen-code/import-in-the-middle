@@ -90,8 +90,8 @@ function createHook (meta) {
       return { url: url.url, format: 'commonjs' }
     }
 
-    // ignore our own modules
-    if (url.url.indexOf('@payzen') !== -1) {
+    // ignore our own modules and our own code
+    if (url.url.indexOf('@payzen') !== -1 || url.url.indexOf('node_modules') === -1) {
       return url
     }
 
